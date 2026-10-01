@@ -59,17 +59,22 @@ filters.forEach(filter => {
 
 
 /* =========================================================
-   YOUTUBE THUMBNAILS
+   AUTOMATIC YOUTUBE THUMBNAILS
 ========================================================= */
 
 /*
-    The thumbnails are automatically pulled from YouTube.
+    You do NOT need to manually add thumbnail images.
 
-    You DON'T need to download or manually upload
-    any thumbnail images.
+    Each thumbnail comes directly from YouTube
+    using the video's ID.
 
-    If maxresdefault isn't available,
-    the code automatically switches to mqdefault.
+    Example:
+
+    Video ID:
+    i6MIycHae5A
+
+    Thumbnail:
+    https://img.youtube.com/vi/i6MIycHae5A/maxresdefault.jpg
 */
 
 const thumbnails = document.querySelectorAll(".youtube-thumbnail");
@@ -80,12 +85,18 @@ thumbnails.forEach(image => {
 
         const videoId = image.dataset.videoId;
 
+        /*
+            If maxresdefault isn't available,
+            automatically use mqdefault instead.
+        */
+
         if (!image.dataset.fallback) {
 
             image.dataset.fallback = "true";
 
             image.src =
                 `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+
         }
 
     });
@@ -110,7 +121,9 @@ const revealObserver = new IntersectionObserver(
             if (entry.isIntersecting) {
 
                 entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
+
+                entry.target.style.transform =
+                    "translateY(0)";
 
                 revealObserver.unobserve(entry.target);
 
@@ -130,8 +143,12 @@ const revealObserver = new IntersectionObserver(
 revealElements.forEach(element => {
 
     element.style.opacity = "0";
-    element.style.transform = "translateY(25px)";
-    element.style.transition = "opacity 0.7s ease, transform 0.7s ease";
+
+    element.style.transform =
+        "translateY(25px)";
+
+    element.style.transition =
+        "opacity 0.7s ease, transform 0.7s ease";
 
     revealObserver.observe(element);
 
@@ -162,7 +179,7 @@ window.addEventListener("scroll", () => {
 
 
 /* =========================================================
-   IMAGE FALLBACK
+   FORMAL.PNG ERROR HANDLING
 ========================================================= */
 
 const portrait = document.querySelector(".portrait");
@@ -171,7 +188,9 @@ if (portrait) {
 
     portrait.addEventListener("error", () => {
 
-        portrait.style.display = "none";
+        console.log(
+            "Formal.png could not be found. Make sure it is in the same folder as index.html."
+        );
 
     });
 
