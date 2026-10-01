@@ -1,7 +1,3 @@
-/* =========================================================
-   RESET
-========================================================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -28,31 +24,25 @@ button {
     font-family: inherit;
 }
 
-
-/* =========================================================
-   VARIABLES
-========================================================= */
-
 :root {
     --background: #07100c;
     --background-light: #0b1711;
     --card: #0d1b14;
     --green: #74d89b;
-    --green-dark: #173b28;
     --white: #f2f5f2;
     --gray: #8d9991;
     --border: rgba(255,255,255,0.10);
 }
 
 
-/* =========================================================
-   LOADER
-========================================================= */
+/* LOADER */
 
 .loader {
     position: fixed;
     inset: 0;
+
     background: var(--background);
+
     z-index: 9999;
 
     display: flex;
@@ -65,8 +55,10 @@ button {
 
 .loader-text {
     font-family: "Space Grotesk", sans-serif;
+
     font-size: 2rem;
     font-weight: 700;
+
     letter-spacing: -0.05em;
 }
 
@@ -81,16 +73,14 @@ button {
         opacity: 0;
         visibility: hidden;
     }
-
 }
 
 
-/* =========================================================
-   NAVBAR
-========================================================= */
+/* NAVBAR */
 
 .navbar {
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -106,6 +96,7 @@ button {
     z-index: 1000;
 
     background: rgba(7,16,12,0.75);
+
     backdrop-filter: blur(16px);
 
     border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -113,8 +104,10 @@ button {
 
 .logo {
     font-family: "Space Grotesk", sans-serif;
+
     font-size: 1.5rem;
     font-weight: 700;
+
     letter-spacing: -0.06em;
 }
 
@@ -125,7 +118,9 @@ button {
 
 .nav-links a {
     color: #b7c0ba;
+
     font-size: 0.9rem;
+
     transition: 0.3s ease;
 }
 
@@ -137,6 +132,7 @@ button {
     padding: 11px 20px;
 
     border: 1px solid var(--border);
+
     border-radius: 100px;
 
     font-size: 0.85rem;
@@ -146,7 +142,9 @@ button {
 
 .nav-button:hover {
     background: var(--green);
+
     color: #07100c;
+
     border-color: var(--green);
 }
 
@@ -154,27 +152,29 @@ button {
     display: none;
 
     background: none;
+
     border: none;
 
     cursor: pointer;
 
     flex-direction: column;
+
     gap: 6px;
 }
 
 .menu-button span {
     width: 27px;
     height: 1px;
+
     background: white;
 }
 
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+/* MOBILE MENU */
 
 .mobile-menu {
     position: fixed;
+
     inset: 0;
 
     background: #07100c;
@@ -182,13 +182,16 @@ button {
     z-index: 999;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
 
     gap: 28px;
 
     transform: translateY(-100%);
+
     transition: 0.5s ease;
 }
 
@@ -198,13 +201,12 @@ button {
 
 .mobile-menu a {
     font-family: "Space Grotesk", sans-serif;
+
     font-size: 2rem;
 }
 
 
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .hero {
     min-height: 100vh;
@@ -212,6 +214,7 @@ button {
     padding: 150px 8vw 80px;
 
     display: grid;
+
     grid-template-columns: 1.2fr 0.8fr;
 
     align-items: center;
@@ -227,6 +230,7 @@ button {
     color: var(--green);
 
     font-size: 0.75rem;
+
     font-weight: 700;
 
     letter-spacing: 0.16em;
@@ -256,6 +260,7 @@ button {
     color: var(--gray);
 
     font-size: 1.05rem;
+
     line-height: 1.8;
 
     margin-bottom: 38px;
@@ -263,24 +268,31 @@ button {
 
 .hero-buttons {
     display: flex;
+
     align-items: center;
+
     gap: 14px;
+
     flex-wrap: wrap;
 }
 
 .primary-button {
     display: inline-flex;
+
     align-items: center;
+
     gap: 20px;
 
     padding: 15px 22px;
 
     background: var(--green);
+
     color: #07100c;
 
     border-radius: 100px;
 
     font-weight: 700;
+
     font-size: 0.9rem;
 
     transition: 0.3s ease;
@@ -312,17 +324,18 @@ button {
 
 .secondary-button:hover {
     border-color: var(--green);
+
     color: var(--green);
 }
 
 
-/* =========================================================
-   HERO IMAGE
-========================================================= */
+/* HERO IMAGE */
 
 .hero-right {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 }
 
@@ -332,6 +345,7 @@ button {
     width: min(400px, 80vw);
 
     display: flex;
+
     justify-content: center;
 }
 
@@ -363,9 +377,7 @@ button {
 }
 
 
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
+/* GENERAL SECTIONS */
 
 .work-section,
 .process-section,
@@ -376,7 +388,9 @@ button {
 
 .section-heading {
     display: flex;
+
     justify-content: space-between;
+
     align-items: flex-end;
 
     gap: 50px;
@@ -388,6 +402,7 @@ button {
     color: var(--green);
 
     font-size: 0.72rem;
+
     font-weight: 700;
 
     letter-spacing: 0.14em;
@@ -418,9 +433,7 @@ button {
 }
 
 
-/* =========================================================
-   FILTERS
-========================================================= */
+/* FILTERS */
 
 .filters {
     display: flex;
@@ -453,14 +466,14 @@ button {
 .filter:hover,
 .filter.active {
     background: var(--green);
+
     color: #07100c;
+
     border-color: var(--green);
 }
 
 
-/* =========================================================
-   VIDEO GRID
-========================================================= */
+/* VIDEO GRID */
 
 .video-grid {
     display: grid;
@@ -502,24 +515,28 @@ button {
 
 .youtube-thumbnail {
     width: 100%;
+
     height: 100%;
 
     display: block;
 
     object-fit: cover;
 
-    transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+    transition:
+        transform 0.6s cubic-bezier(.2,.7,.2,1);
 }
 
 .thumbnail-dark {
     position: absolute;
+
     inset: 0;
 
-    background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.75),
-        rgba(0,0,0,0.05) 70%
-    );
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.75),
+            rgba(0,0,0,0.05) 70%
+        );
 
     opacity: 0.45;
 
@@ -532,7 +549,9 @@ button {
     left: 50%;
     top: 50%;
 
-    transform: translate(-50%, -50%) scale(0.85);
+    transform:
+        translate(-50%, -50%)
+        scale(0.85);
 
     width: 58px;
     height: 58px;
@@ -540,7 +559,9 @@ button {
     border-radius: 50%;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     padding-left: 3px;
@@ -565,6 +586,7 @@ button {
     color: white;
 
     font-size: 0.65rem;
+
     font-weight: 700;
 
     letter-spacing: 0.1em;
@@ -606,6 +628,7 @@ button {
     color: var(--green);
 
     font-size: 0.62rem;
+
     font-weight: 700;
 
     letter-spacing: 0.12em;
@@ -622,9 +645,7 @@ button {
 }
 
 
-/* =========================================================
-   PROCESS
-========================================================= */
+/* PROCESS */
 
 .process-section {
     background: var(--background-light);
@@ -679,9 +700,7 @@ button {
 }
 
 
-/* =========================================================
-   SERVICES
-========================================================= */
+/* SERVICES */
 
 .services-list {
     border-top: 1px solid var(--border);
@@ -740,9 +759,7 @@ button {
 }
 
 
-/* =========================================================
-   CONTACT
-========================================================= */
+/* CONTACT */
 
 .contact-section {
     min-height: 80vh;
@@ -847,9 +864,7 @@ button {
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 footer {
     padding: 35px 8vw;
@@ -880,9 +895,7 @@ footer {
 }
 
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+/* RESPONSIVE */
 
 @media (max-width: 1000px) {
 
@@ -925,7 +938,6 @@ footer {
     .contact-section {
         grid-template-columns: 1fr;
     }
-
 }
 
 
@@ -941,6 +953,7 @@ footer {
     .services-section,
     .contact-section {
         padding-left: 5vw;
+
         padding-right: 5vw;
     }
 
@@ -976,6 +989,7 @@ footer {
         border-bottom: 1px solid var(--border);
 
         margin-right: 0;
+
         padding-right: 0;
     }
 
@@ -1011,23 +1025,19 @@ footer {
 
         align-items: flex-start;
     }
-
 }
 
 
-/* =========================================================
-   SELECTION
-========================================================= */
+/* SELECTION */
 
 ::selection {
     background: var(--green);
+
     color: #07100c;
 }
 
 
-/* =========================================================
-   SCROLLBAR
-========================================================= */
+/* SCROLLBAR */
 
 ::-webkit-scrollbar {
     width: 7px;
@@ -1039,6 +1049,7 @@ footer {
 
 ::-webkit-scrollbar-thumb {
     background: #254e35;
+
     border-radius: 20px;
 }
 
