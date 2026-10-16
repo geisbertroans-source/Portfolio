@@ -1,1077 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Geisx — Video Editor</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Geisx — Video Editor</title>
+<meta name="theme-color" content="#05060b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- LOADER -->
-<div class="loader">
-    <div class="loader-text">GEISX.</div>
-</div>
+<div class="loader" id="loader"><div class="loader-num" id="loaderNum">00</div><div class="loader-bar"><i id="loaderBar"></i></div></div>
+<div class="progress" id="progress"></div>
+<div class="cursor" id="cursor"></div>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+<div class="grain"></div>
 
-
-<!-- NAVBAR -->
-<header class="navbar">
-
-    <a href="#home" class="logo">Geisx.</a>
-
-    <nav class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#process">Process</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <a href="#contact" class="nav-button">
-        Let's Talk
-    </a>
-
-    <button class="menu-button" id="menuButton" aria-label="Open menu">
-        <span></span>
-        <span></span>
-    </button>
-
+<header class="nav glass">
+  <a href="#home" class="logo">Geisx<b>.</b></a>
+  <nav class="links">
+    <a href="#work">Work</a><a href="#process">Process</a><a href="#services">Services</a><a href="#contact">Contact</a>
+  </nav>
+  <a href="#contact" class="pill mag">Let's talk</a>
+  <button class="burger" id="menuButton" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
 </header>
 
-
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-
-    <a href="#work">Work</a>
-    <a href="#process">Process</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-
+  <a href="#work">Work</a><a href="#process">Process</a><a href="#services">Services</a><a href="#contact">Contact</a>
 </div>
 
-
-<!-- HERO -->
+<main>
 <section class="hero" id="home">
-
-    <div class="hero-left">
-
-        <p class="eyebrow">
-            VIDEO EDITOR · MULTIMEDIA CREATIVE
-        </p>
-
-        <h1>
-            Hi! I'm <span>Geis.</span>
-        </h1>
-
-        <p class="hero-description">
-            I'm a video editor from the Philippines focused on
-            short-form content, social media videos, trailers,
-            advertisements, event highlights, and creative edits.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#work" class="primary-button">
-                View My Work
-                <span>↗</span>
-            </a>
-
-            <a href="#contact" class="secondary-button">
-                Let's Work Together
-            </a>
-
-        </div>
-
+  <div class="hero-copy">
+    <p class="hello">Hi! I'm</p>
+    <h1 id="heroTitle" aria-label="Geis">Geis</h1>
+    <p class="lead">Student video editor from the Philippines. I've been editing for 5 years I cut short-form videos, trailers, ads, event highlights and school projects.</p>
+    <div class="btns">
+      <a href="#work" class="btn mag">Watch my work</a>
+      <a href="#contact" class="btn ghost mag">Work with me</a>
     </div>
+    <p class="hint">Tap my photo. Deal the cards below and pick a video.</p>
+  </div>
 
-
-    <div class="hero-right">
-
-        <div class="portrait-wrapper">
-
-            <div class="portrait-glow"></div>
-
-            <!-- Formal.png is in the SAME folder as index.html -->
-            <img
-                src="Formal.png"
-                alt="Geis"
-                class="portrait"
-            >
-
-        </div>
-
+  <div class="hero-art" data-tilt>
+    <div class="ring"></div>
+    <div class="frame glass" id="frame" role="button" tabindex="0" aria-label="Tap the photo to change it">
+      <img src="Formal.png" alt="Geis" class="portrait" id="pFormal" onerror="this.style.display='none'">
+      <img src="shades.png" alt="Geis wearing shades" class="portrait alt" id="pShades" aria-hidden="true">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <span class="tap" id="tapHint">Tap me</span>
     </div>
+  </div>
 
+  </section>
+
+<section class="sec" id="work">
+  <div class="head">
+    <h2 class="chrome">Things I've edited</h2>
+    <p>Short-form content, trailers, advertisements, event highlights and school projects. Tap a card to watch it right here.</p>
+  </div>
+  <div class="filters" id="filters"></div>
+  <div class="stage" id="stage"><p class="stage-empty" id="stageEmpty">Deal the cards, then drag one in here to watch it.</p></div>
+  <div class="deck" id="grid" role="group" aria-label="Video cards"></div>
+  <div class="deck-ui"><p id="deckHint">Tap the pile to deal the cards.</p><button class="filter" id="stackBtn" hidden>Stack cards</button></div>
 </section>
 
-
-<!-- WORK -->
-<section class="work-section" id="work">
-
-    <div class="section-heading">
-
-        <div>
-            <p class="section-number">01 · SELECTED WORK</p>
-
-            <h2>
-                Things I've <span>edited.</span>
-            </h2>
-        </div>
-
-        <p class="section-description">
-            A collection of short-form content, trailers,
-            advertisements, event highlights, and school projects.
-        </p>
-
-    </div>
-
-
-    <!-- FILTERS -->
-    <div class="filters">
-
-        <button class="filter active" data-filter="all">
-            All
-        </button>
-
-        <button class="filter" data-filter="short">
-            Short Form
-        </button>
-
-        <button class="filter" data-filter="trailers">
-            Trailers
-        </button>
-
-        <button class="filter" data-filter="ads">
-            Ads
-        </button>
-
-        <button class="filter" data-filter="events">
-            Event Highlights
-        </button>
-
-        <button class="filter" data-filter="school">
-            School Commissions
-        </button>
-
-    </div>
-
-
-    <!-- VIDEO GRID -->
-    <div class="video-grid">
-
-
-        <!-- =================================================
-             SHORT FORM
-        ================================================== -->
-
-        <article class="video-card" data-category="short">
-
-            <a
-                href="https://youtube.com/shorts/i6MIycHae5A"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch Short Form Edit 01 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/i6MIycHae5A/maxresdefault.jpg"
-                        data-video-id="i6MIycHae5A"
-                        alt="Short Form Edit 01"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>SHORT FORM</span>
-                <h3>Short Form Edit 01</h3>
-            </div>
-
-        </article>
-
-
-        <article class="video-card" data-category="short">
-
-            <a
-                href="https://youtube.com/shorts/3qdmqJNOscI"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch Short Form Edit 02 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/3qdmqJNOscI/maxresdefault.jpg"
-                        data-video-id="3qdmqJNOscI"
-                        alt="Short Form Edit 02"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>SHORT FORM</span>
-                <h3>Short Form Edit 02</h3>
-            </div>
-
-        </article>
-
-
-        <article class="video-card" data-category="short">
-
-            <a
-                href="https://youtube.com/shorts/czvI6Q1nj2g"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch Short Form Edit 03 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/czvI6Q1nj2g/maxresdefault.jpg"
-                        data-video-id="czvI6Q1nj2g"
-                        alt="Short Form Edit 03"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>SHORT FORM</span>
-                <h3>Short Form Edit 03</h3>
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             TRAILERS
-        ================================================== -->
-
-        <article class="video-card" data-category="trailers">
-
-            <a
-                href="https://youtu.be/xK_KV5KoKYA"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch Trailer Edit 01 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/xK_KV5KoKYA/maxresdefault.jpg"
-                        data-video-id="xK_KV5KoKYA"
-                        alt="Trailer Edit 01"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>TRAILER</span>
-                <h3>Trailer Edit 01</h3>
-            </div>
-
-        </article>
-
-
-        <article class="video-card" data-category="trailers">
-
-            <a
-                href="https://youtu.be/7TqxUz9m1HQ"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch Trailer Edit 02 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/7TqxUz9m1HQ/maxresdefault.jpg"
-                        data-video-id="7TqxUz9m1HQ"
-                        alt="Trailer Edit 02"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>TRAILER</span>
-                <h3>Trailer Edit 02</h3>
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             ADS
-        ================================================== -->
-
-        <article class="video-card" data-category="ads">
-
-            <a
-                href="https://youtube.com/shorts/2A-RAq0ovSY"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch Advertisement Edit 01 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/2A-RAq0ovSY/maxresdefault.jpg"
-                        data-video-id="2A-RAq0ovSY"
-                        alt="Advertisement Edit 01"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>ADVERTISEMENT</span>
-                <h3>Advertisement Edit 01</h3>
-            </div>
-
-        </article>
-
-
-        <article class="video-card" data-category="ads">
-
-            <a
-                href="https://youtube.com/shorts/8qaBkXwh0Cg"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch Advertisement Edit 02 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/8qaBkXwh0Cg/maxresdefault.jpg"
-                        data-video-id="8qaBkXwh0Cg"
-                        alt="Advertisement Edit 02"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>ADVERTISEMENT</span>
-                <h3>Advertisement Edit 02</h3>
-            </div>
-
-        </article>
-
-
-        <article class="video-card" data-category="ads">
-
-            <a
-                href="https://youtube.com/shorts/Li0AigCqzEc"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch Advertisement Edit 03 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/Li0AigCqzEc/maxresdefault.jpg"
-                        data-video-id="Li0AigCqzEc"
-                        alt="Advertisement Edit 03"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>ADVERTISEMENT</span>
-                <h3>Advertisement Edit 03</h3>
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             EVENT HIGHLIGHTS
-        ================================================== -->
-
-        <article class="video-card" data-category="events">
-
-            <a
-                href="https://youtu.be/l0bhl2TR6fA"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch Event Highlight 01 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/l0bhl2TR6fA/maxresdefault.jpg"
-                        data-video-id="l0bhl2TR6fA"
-                        alt="Event Highlight 01"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>EVENT HIGHLIGHT</span>
-                <h3>Event Highlight 01</h3>
-            </div>
-
-        </article>
-
-
-        <article class="video-card" data-category="events">
-
-            <a
-                href="https://youtu.be/_kyib2AWqzY"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch Event Highlight 02 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/_kyib2AWqzY/maxresdefault.jpg"
-                        data-video-id="_kyib2AWqzY"
-                        alt="Event Highlight 02"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>EVENT HIGHLIGHT</span>
-                <h3>Event Highlight 02</h3>
-            </div>
-
-        </article>
-
-
-        <article class="video-card" data-category="events">
-
-            <a
-                href="https://youtu.be/6xY6wLcHJAY"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch Event Highlight 03 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/6xY6wLcHJAY/maxresdefault.jpg"
-                        data-video-id="6xY6wLcHJAY"
-                        alt="Event Highlight 03"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>EVENT HIGHLIGHT</span>
-                <h3>Event Highlight 03</h3>
-            </div>
-
-        </article>
-
-
-        <!-- =================================================
-             SCHOOL COMMISSIONS
-        ================================================== -->
-
-        <article class="video-card" data-category="school">
-
-            <a
-                href="https://youtu.be/RUXomVTvOTs"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch School Commission 01 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/RUXomVTvOTs/maxresdefault.jpg"
-                        data-video-id="RUXomVTvOTs"
-                        alt="School Commission 01"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>SCHOOL COMMISSION</span>
-                <h3>School Commission 01</h3>
-            </div>
-
-        </article>
-
-
-        <article class="video-card" data-category="school">
-
-            <a
-                href="https://youtu.be/uIh0LqdmWRY"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch School Commission 02 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/uIh0LqdmWRY/maxresdefault.jpg"
-                        data-video-id="uIh0LqdmWRY"
-                        alt="School Commission 02"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>SCHOOL COMMISSION</span>
-                <h3>School Commission 02</h3>
-            </div>
-
-        </article>
-
-
-        <article class="video-card" data-category="school">
-
-            <a
-                href="https://youtu.be/4FLPAvRO24k"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="video-link"
-                aria-label="Watch School Commission 03 on YouTube"
-            >
-
-                <div class="thumbnail">
-
-                    <img
-                        src="https://img.youtube.com/vi/4FLPAvRO24k/maxresdefault.jpg"
-                        data-video-id="4FLPAvRO24k"
-                        alt="School Commission 03"
-                        class="youtube-thumbnail"
-                    >
-
-                    <div class="thumbnail-dark"></div>
-
-                    <div class="play-button">
-                        ▶
-                    </div>
-
-                    <div class="watch-youtube">
-                        WATCH ON YOUTUBE ↗
-                    </div>
-
-                </div>
-
-            </a>
-
-            <div class="video-info">
-                <span>SCHOOL COMMISSION</span>
-                <h3>School Commission 03</h3>
-            </div>
-
-        </article>
-
-
-    </div>
-
+<section class="sec" id="process">
+  <div class="head">
+    <h2 class="chrome">From raw footage to final cut</h2>
+    <p>I keep the process simple, organized, and focused on making the final video work.</p>
+  </div>
+  <div class="steps">
+    <article class="step glass" data-tilt><b>01</b><h3>Understand</h3><p>I learn the project's purpose, audience, references, and the feeling the video needs to create.</p></article>
+    <article class="step glass" data-tilt><b>02</b><h3>Plan</h3><p>I go through the footage, find the strongest moments, then set structure, pacing, music, and visual direction.</p></article>
+    <article class="step glass" data-tilt><b>03</b><h3>Edit</h3><p>I build the edit with cuts, captions, sound effects, transitions, motion graphics, and visual elements.</p></article>
+    <article class="step glass" data-tilt><b>04</b><h3>Refine</h3><p>I review everything, make revisions, clean up the details, and prepare the final video for delivery.</p></article>
+  </div>
 </section>
 
-
-<!-- PROCESS -->
-<section class="process-section" id="process">
-
-    <div class="section-heading">
-
-        <div>
-            <p class="section-number">02 · MY PROCESS</p>
-
-            <h2>
-                From raw footage<br>
-                to <span>final cut.</span>
-            </h2>
-        </div>
-
-        <p class="section-description">
-            I keep the process simple, organized, and focused
-            on making the final video work.
-        </p>
-
-    </div>
-
-
-    <div class="process-grid">
-
-        <div class="process-item">
-
-            <div class="process-number">01</div>
-
-            <h3>Understand</h3>
-
-            <p>
-                I first understand the project, its purpose,
-                audience, references, and the kind of feeling
-                the video needs to create.
-            </p>
-
-        </div>
-
-
-        <div class="process-item">
-
-            <div class="process-number">02</div>
-
-            <h3>Plan</h3>
-
-            <p>
-                I go through the footage, find the strongest
-                moments, and figure out the structure, pacing,
-                music, and visual direction.
-            </p>
-
-        </div>
-
-
-        <div class="process-item">
-
-            <div class="process-number">03</div>
-
-            <h3>Edit</h3>
-
-            <p>
-                I build the actual edit using cuts, captions,
-                sound effects, transitions, motion graphics,
-                and visual elements.
-            </p>
-
-        </div>
-
-
-        <div class="process-item">
-
-            <div class="process-number">04</div>
-
-            <h3>Refine</h3>
-
-            <p>
-                I review everything, make revisions, clean up
-                the details, and prepare the final video for
-                delivery.
-            </p>
-
-        </div>
-
-    </div>
-
+<section class="sec" id="services">
+  <div class="head"><h2 class="chrome">What I can help with</h2></div>
+  <div class="svc">
+    <details class="glass" open><summary>Short-form content</summary><p>TikTok, Reels, Shorts, social media edits, captions, hooks, pacing, and retention-focused editing.</p></details>
+    <details class="glass"><summary>Long-form &amp; trailers</summary><p>Longer videos, trailers, teasers, storytelling, pacing, music, and cinematic editing.</p></details>
+    <details class="glass"><summary>Ads &amp; promotional videos</summary><p>Product-focused edits designed to communicate an idea clearly and keep viewers interested.</p></details>
+    <details class="glass"><summary>Event &amp; highlight videos</summary><p>Event recaps, school programs, celebrations, highlights, and memorable moments.</p></details>
+    <details class="glass"><summary>Motion &amp; visual enhancements</summary><p>Simple motion graphics, animated text, transitions, visual effects, and overlays.</p></details>
+  </div>
 </section>
 
+<section class="sec contact" id="contact">
+  <div>
+    <h2 class="chrome big">Have something in mind?</h2>
+    <p class="lead">If you have a video that needs editing, reach out. Let's work on it.</p>
+    <a href="mailto:geisbertroans@gmail.com" class="btn mag">Email me</a>
+  </div>
+  <div class="cbox glass">
+    <a href="mailto:geisbertroans@gmail.com"><span>Email</span>geisbertroans@gmail.com</a>
+    <a href="https://www.facebook.com/profile.php?id=61576937462979" target="_blank" rel="noopener noreferrer"><span>Facebook</span>Open profile ↗</a>
+    <a href="https://www.linkedin.com/in/geis-sabater/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span>Open profile ↗</a>
+    <a href="tel:+639777432588"><span>Phone</span>+63 977 743 2588</a>
+  </div>
+</section>
+</main>
 
-<!-- SERVICES -->
-<section class="services-section" id="services">
+<footer><b class="logo">Geisx<b>.</b></b><p>Video Editor · Multimedia Creative</p><p>© 2026 Geisbert Sabater</p></footer>
 
-    <div class="section-heading">
-
-        <div>
-            <p class="section-number">03 · SERVICES</p>
-
-            <h2>
-                What I can<br>
-                <span>help with.</span>
-            </h2>
-        </div>
-
-    </div>
-
-
-    <div class="services-list">
-
-        <div class="service-item">
-
-            <span class="service-number">01</span>
-
-            <div>
-                <h3>Short-Form Content</h3>
-
-                <p>
-                    TikTok, Reels, Shorts, social media edits,
-                    captions, hooks, pacing, and retention-focused editing.
-                </p>
-            </div>
-
-            <span class="service-arrow">↗</span>
-
-        </div>
-
-
-        <div class="service-item">
-
-            <span class="service-number">02</span>
-
-            <div>
-                <h3>Long-Form & Trailers</h3>
-
-                <p>
-                    Longer videos, trailers, teasers, storytelling,
-                    pacing, music, and cinematic editing.
-                </p>
-            </div>
-
-            <span class="service-arrow">↗</span>
-
-        </div>
-
-
-        <div class="service-item">
-
-            <span class="service-number">03</span>
-
-            <div>
-                <h3>Ads & Promotional Videos</h3>
-
-                <p>
-                    Product-focused edits designed to communicate
-                    an idea clearly and keep viewers interested.
-                </p>
-            </div>
-
-            <span class="service-arrow">↗</span>
-
-        </div>
-
-
-        <div class="service-item">
-
-            <span class="service-number">04</span>
-
-            <div>
-                <h3>Event & Highlight Videos</h3>
-
-                <p>
-                    Event recaps, school programs, celebrations,
-                    highlights, and memorable moments.
-                </p>
-            </div>
-
-            <span class="service-arrow">↗</span>
-
-        </div>
-
-
-        <div class="service-item">
-
-            <span class="service-number">05</span>
-
-            <div>
-                <h3>Motion & Visual Enhancements</h3>
-
-                <p>
-                    Simple motion graphics, animated text,
-                    transitions, visual effects, and overlays.
-                </p>
-            </div>
-
-            <span class="service-arrow">↗</span>
-
-        </div>
-
-    </div>
-
+<div class="ask-tip" id="askTip" role="status" aria-live="polite"></div>
+<button class="ask" id="askBtn" aria-expanded="false" aria-controls="chat">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>
+  <span>Ask Geisx anything</span>
+</button>
+<section class="chat" id="chat" aria-label="Ask Geisx" aria-hidden="true">
+  <header><div><b>Ask Geisx</b><small>Quick answers about me and my work</small></div><button id="chatClose" aria-label="Close chat">✕</button></header>
+  <div class="msgs" id="msgs" aria-live="polite"></div>
+  <div class="chips" id="chips"></div>
+  <form id="chatForm" autocomplete="off"><input id="chatInput" placeholder="Type your question…" maxlength="200" aria-label="Your question"><button aria-label="Send question">↑</button></form>
 </section>
 
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-box glass" id="modalBox">
+    <button class="close" id="close" aria-label="Close video">✕</button>
+    <div class="player" id="player"></div>
+    <a class="yt" id="ytLink" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a>
+  </div>
+</div>
 
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-
-    <div class="contact-content">
-
-        <p class="section-number">04 · CONTACT</p>
-
-        <h2>
-            Have something<br>
-            <span>in mind?</span>
-        </h2>
-
-        <p class="contact-description">
-            If you have a video that needs editing,
-            feel free to reach out. Let's work on it.
-        </p>
-
-        <a
-            href="mailto:geisbertroans@gmail.com"
-            class="contact-button"
-        >
-            Let's Collaborate
-            <span>↗</span>
-        </a>
-
-    </div>
-
-
-    <div class="contact-details">
-
-        <div class="contact-row">
-
-            <span>EMAIL</span>
-
-            <a href="mailto:geisbertroans@gmail.com">
-                geisbertroans@gmail.com
-            </a>
-
-        </div>
-
-
-        <div class="contact-row">
-
-            <span>FACEBOOK</span>
-
-            <a
-                href="https://www.facebook.com/profile.php?id=61576937462979"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Facebook ↗
-            </a>
-
-        </div>
-
-
-        <div class="contact-row">
-
-            <span>LINKEDIN</span>
-
-            <a
-                href="https://www.linkedin.com/in/geis-sabater/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                LinkedIn ↗
-            </a>
-
-        </div>
-
-
-        <div class="contact-row">
-
-            <span>PHONE</span>
-
-            <a href="tel:+639777432588">
-                +63 977 743 2588
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- FOOTER -->
-<footer>
-
-    <div class="footer-logo">
-        Geisx.
-    </div>
-
-    <p>
-        Video Editor · Multimedia Creative
-    </p>
-
-    <p>
-        © 2026 Geisbert Sabater
-    </p>
-
-</footer>
-
-
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
