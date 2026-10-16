@@ -329,6 +329,15 @@ if (!calm && "IntersectionObserver" in window) {
 const MAIL = "geisbertroans@gmail.com";
 const KB = [
   { k: ["hi", "hello", "hey", "yo", "sup", "good morning", "good evening"], a: "Hey! Ask me about my work, my services, or how to hire me." },
+  { k: ["start", "started", "began", "begin", "how long have you", "since when", "pandemic", "2020", "experience", "how old were you"], a: "I started editing in 2020, when I was 12, during the pandemic. My first editing work was in high school as the SSLG video editor, and in senior high school I was a video editor for the Paraluman PCU Dasma Official Media Team." },
+  { k: ["first work", "first project", "first edit", "first video", "first job", "sslg", "senior high", "high school", "shs", "paraluman", "media team", "official media"], a: "My first editing work was in my high school days as the SSLG video editor. In senior high school, I was a video editor for the Paraluman PCU Dasma Official Media Team." },
+  { k: ["club", "clubs", "organization", "organizations", "member", "members"], a: "I'm not in a club right now since I'm a college freshman. In high school I was part of the SSLG and the Paraluman PCU Dasma Official Media Team." },
+  { k: ["how old", "your age", "years old", "age"], a: "I'm 18 years old." },
+  { k: ["full name", "your name", "real name", "complete name", "geisbert", "sabater", "roan"], a: "My full name is Geisbert Roan S. Sabater, but you can call me Geis." },
+  { k: ["college", "university", "pcu", "dasma", "cavite", "course", "bsit", "study", "studying", "student", "freshman", "degree", "where do you go"], a: "I'm a college freshman at PCU Dasma in Cavite, taking BSIT." },
+  { k: ["what do you work on", "work on", "what do you use", "what pc", "specs", "spec", "pc", "computer", "processor", "cpu", "ram", "gpu", "graphics", "storage", "ryzen", "rx 6600", "laptop"], a: "I edit on a dual-monitor desktop with speakers and a headset, and I also use a Xiaomi Pad 7 Pro tablet. My PC specs:<br>Processor: AMD Ryzen 7 3700X 8-Core (3.60 GHz)<br>RAM: 16 GB<br>Graphics: AMD Radeon RX 6600 (8 GB)<br>Storage: 466 GB, with about 382 GB in use" },
+  { k: ["setup", "set up", "equipment", "gear", "monitor", "monitors", "speaker", "speakers", "headset", "tablet", "xiaomi", "tools"], a: "My setup is a dual-monitor desktop with speakers and a headset. I also use a Xiaomi Pad 7 Pro tablet. Ask me about my PC specs if you want the details." },
+  { k: ["hobby", "hobbies", "free time", "for fun", "interests", "like to do", "love to do", "bouquet", "boquet", "ribbon", "fuzzy wire", "gaming", "games", "game", "movies", "movie", "photography", "filming", "cats", "dogs", "cat", "dog", "pets", "pet"], a: "Outside of editing I love gaming, filming and photography, and watching movies. I also make bouquets using ribbon or fuzzy wire, and I'm a big cat and dog lover." },
   { k: ["who are", "about", "yourself", "introduce", "geis", "geisx", "name"], a: "I'm Geis, a video editor and multimedia creative from the Philippines. I focus on short-form content, social media videos, trailers, ads, event highlights, and creative edits." },
   { k: ["service", "offer", "what do you", "what can you", "help with", "edit"], a: "I can help with short-form content, long-form videos and trailers, ads and promo videos, event and highlight videos, and simple motion graphics and visual effects." },
   { k: ["short", "tiktok", "reels", "shorts", "vertical", "captions", "hook"], a: "Short-form is my main thing: TikToks, Reels and Shorts with captions, strong hooks, tight pacing, and retention-focused editing. You can see examples in the <a href=\"#work\">work section</a>." },
@@ -347,7 +356,7 @@ const KB = [
   { k: ["thank", "thanks", "ty", "cool", "nice", "great", "awesome"], a: "Anytime! Let me know if there's anything else you'd like to ask." },
   { k: ["bye", "goodbye", "see you"], a: "Thanks for stopping by!" }
 ];
-const CHIPS = ["What do you edit?", "Show me your work", "How do I hire you?", "What's your process?"];
+const CHIPS = ["What do you edit?", "When did you start?", "What's your setup?", "How do I hire you?"];
 
 const tip = $("#askTip"), askBtn = $("#askBtn"), chat = $("#chat"), msgs = $("#msgs"), chatForm = $("#chatForm"), chatInput = $("#chatInput"), chips = $("#chips");
 const addMsg = (html, who, isText) => {
