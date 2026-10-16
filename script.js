@@ -1,14 +1,13 @@
 /* ===== DATA: add or change videos here ===== */
-const LABELS = {short:"Short Form Edit",trailers:"Trailer Edit",ads:"Ad",events:"Event Highlight",school:"School Commission",long:"Longform"};
-const FILTERS = [["all","All"],["short","Short Form"],["trailers","Trailers"],["ads","Ads"],["events","Event Highlights"],["school","School Commissions"],["long","Longform"]];
+const LABELS = {short:"Short Form Edit",trailers:"Trailer Edit",ads:"Ad",events:"Event Highlight",school:"School Commission"};
+const FILTERS = [["all","All"],["short","Short Form"],["trailers","Trailers"],["ads","Ads"],["events","Event Highlights"],["school","School Commissions"]];
 // [category, youtube id, vertical?]
 const VIDEOS = [
  ["short","i6MIycHae5A",1],["short","3qdmqJNOscI",1],["short","czvI6Q1nj2g",1],
  ["trailers","xK_KV5KoKYA",0],["trailers","7TqxUz9m1HQ",0],
  ["ads","2A-RAq0ovSY",1],["ads","8qaBkXwh0Cg",1],["ads","Li0AigCqzEc",1],
  ["events","l0bhl2TR6fA",0],["events","_kyib2AWqzY",0],["events","6xY6wLcHJAY",0],
- ["school","RUXomVTvOTs",0],["school","uIh0LqdmWRY",0],["school","4FLPAvRO24k",0],["school","Ia30xeDbNsc",0],["school","4VgJthIrI8c",0],
- ["long","WcFG5BCVxac",0]
+ ["school","RUXomVTvOTs",0],["school","uIh0LqdmWRY",0],["school","4FLPAvRO24k",0],["school","Ia30xeDbNsc",0],["school","4VgJthIrI8c",0]
 ];
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -62,7 +61,7 @@ const hint = $("#deckHint"), stackBtn = $("#stackBtn"), narrow = matchMedia("(ma
 filtersEl.innerHTML = FILTERS.map(([k, t], i) => `<button class="filter${i ? "" : " active"}" data-f="${k}">${t}</button>`).join("");
 grid.innerHTML = VIDEOS.map(([cat, id, v]) => {
   counts[cat] = (counts[cat] || 0) + 1;
-  const name = `${LABELS[cat]}${cat === "long" ? "" : " " + String(counts[cat]).padStart(2, "0")}`;
+  const name = `${LABELS[cat]}${" " + String(counts[cat]).padStart(2, "0")}`;
   return `<button class="card" data-cat="${cat}" data-id="${id}" data-v="${v}" aria-label="Play ${name}">
     <img src="https://img.youtube.com/vi/${id}/${v ? "hqdefault" : "maxresdefault"}.jpg" data-fb="https://img.youtube.com/vi/${id}/hqdefault.jpg" alt="${name}" loading="lazy" draggable="false">
     <span class="suit">✦</span><span class="play">▶</span><span class="meta"><small>${LABELS[cat].replace(" Edit", "")}</small><strong>${name}</strong></span><span class="back"><b>✦</b></span></button>`;
@@ -342,10 +341,10 @@ const KB = [
   { k: ["service", "offer", "what do you", "what can you", "help with", "edit"], a: "I can help with short-form content, long-form videos and trailers, ads and promo videos, event and highlight videos, and simple motion graphics and visual effects." },
   { k: ["short", "tiktok", "reels", "shorts", "vertical", "captions", "hook"], a: "Short-form is my main thing: TikToks, Reels and Shorts with captions, strong hooks, tight pacing, and retention-focused editing. You can see examples in the <a href=\"#work\">work section</a>." },
   { k: ["trailer", "teaser", "cinematic"], a: "I edit trailers and teasers with storytelling, music, and pacing that build a mood. Check the Trailers filter in my <a href=\"#work\">work section</a>." },
+  { k: ["longform", "long form", "long-form", "longer video", "youtube video", "documentary", "vlog"], a: "Yes, I still edit long-form videos. <a href=\"mailto:" + MAIL + "\">Email me</a> the details of your project and we can talk about it." },
   { k: ["ad", "ads", "advert", "promo", "product", "commercial"], a: "I make product-focused ads and promo videos that explain an idea clearly and keep people watching. See the Ads filter in my <a href=\"#work\">work section</a>." },
   { k: ["event", "highlight", "recap", "program", "celebration"], a: "I cut event recaps and highlight videos for school programs, celebrations, and other memorable moments." },
   { k: ["school", "commission", "student", "project"], a: "I've done school commission projects too. You can watch some under the School Commissions filter in my <a href=\"#work\">work section</a>." },
-  { k: ["long", "longform", "youtube video", "documentary"], a: "Yes, I edit longer videos as well. There's a Longform example in my <a href=\"#work\">work section</a>." },
   { k: ["motion", "graphic", "animation", "animated", "effects", "vfx", "transition"], a: "I add simple motion graphics, animated text, transitions, visual effects, and overlays to make edits feel more polished." },
   { k: ["work", "portfolio", "sample", "example", "show", "see", "watch"], a: "You can watch everything in my <a href=\"#work\">work section</a>. Tap any card to play the video right on the page." },
   { k: ["process", "how do you work", "workflow", "steps", "revision", "revisions"], a: "I understand the project first, then plan the structure and pacing, build the edit, and refine it with revisions before delivery. More in the <a href=\"#process\">process section</a>." },
